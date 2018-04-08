@@ -1,0 +1,11 @@
+C:\Users\katanon2\Source\Workspaces\DSME946\DSME946\CommonClassLibrary\bin\Debug\CommonClassLibrary.dll.config
+C:\Users\katanon2\Source\Workspaces\DSME946\DSME946\CommonClassLibrary\bin\Debug\CommonClassLibrary.dll
+C:\Users\katanon2\Source\Workspaces\DSME946\DSME946\CommonClassLibrary\bin\Debug\CommonClassLibrary.pdb
+C:\Users\katanon2\Source\Workspaces\DSME946\DSME946\CommonClassLibrary\bin\Debug\EntityFramework.dll
+C:\Users\katanon2\Source\Workspaces\DSME946\DSME946\CommonClassLibrary\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\katanon2\Source\Workspaces\DSME946\DSME946\CommonClassLibrary\bin\Debug\EntityFramework.xml
+C:\Users\katanon2\Source\Workspaces\DSME946\DSME946\CommonClassLibrary\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\katanon2\Source\Workspaces\DSME946\DSME946\CommonClassLibrary\obj\Debug\CommonClassLibrary.csprojResolveAssemblyReference.cache
+C:\Users\katanon2\Source\Workspaces\DSME946\DSME946\CommonClassLibrary\obj\Debug\CommonClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\katanon2\Source\Workspaces\DSME946\DSME946\CommonClassLibrary\obj\Debug\CommonClassLibrary.dll
+C:\Users\katanon2\Source\Workspaces\DSME946\DSME946\CommonClassLibrary\obj\Debug\CommonClassLibrary.pdb

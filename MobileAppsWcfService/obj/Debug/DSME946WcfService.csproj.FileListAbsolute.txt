@@ -1,0 +1,7 @@
+C:\Users\katanon2\Source\Workspaces\DSME946\DSME946\MobileAppsWcfService\bin\MobileAppsWcfService.dll.config
+C:\Users\katanon2\Source\Workspaces\DSME946\DSME946\MobileAppsWcfService\bin\MobileAppsWcfService.dll
+C:\Users\katanon2\Source\Workspaces\DSME946\DSME946\MobileAppsWcfService\bin\MobileAppsWcfService.pdb
+C:\Users\katanon2\Source\Workspaces\DSME946\DSME946\MobileAppsWcfService\obj\Debug\DSME946WcfService.csprojResolveAssemblyReference.cache
+C:\Users\katanon2\Source\Workspaces\DSME946\DSME946\MobileAppsWcfService\obj\Debug\DSME946WcfService.csproj.CoreCompileInputs.cache
+C:\Users\katanon2\Source\Workspaces\DSME946\DSME946\MobileAppsWcfService\obj\Debug\MobileAppsWcfService.dll
+C:\Users\katanon2\Source\Workspaces\DSME946\DSME946\MobileAppsWcfService\obj\Debug\MobileAppsWcfService.pdb

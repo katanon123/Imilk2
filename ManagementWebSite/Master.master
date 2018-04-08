@@ -1,0 +1,590 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Master.master.cs" Inherits="Master" %>
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>I MILK CAFE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
+    <link href="http://services.totiti.net/MetronicAdminTemplate/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <link rel="stylesheet" type="text/css" href="http://services.totiti.net/MetronicAdminTemplate/plugins/clockface/css/clockface.css" />
+    <link rel="stylesheet" type="text/css" href="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap-datepicker/css/datepicker.css" />
+    <link rel="stylesheet" type="text/css" href="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap-colorpicker/css/colorpicker.css" />
+    <link rel="stylesheet" type="text/css" href="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+    <link rel="stylesheet" type="text/css" href="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap-datetimepicker/css/datetimepicker.css" />
+
+    <link rel="stylesheet" type="text/css" href="http://services.totiti.net/MetronicAdminTemplate/plugins/select2/select2.css" />
+    <link rel="stylesheet" type="text/css" href="http://services.totiti.net/MetronicAdminTemplate/plugins/select2/select2-metronic.css" />
+    <link rel="stylesheet" href="http://services.totiti.net/MetronicAdminTemplate/plugins/data-tables/DT_bootstrap.css" />
+    <!-- END PAGE LEVEL PLUGIN STYLES -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="http://services.totiti.net/MetronicAdminTemplate/css/style-metronic.css" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/css/pages/tasks.css" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/css/print.css" rel="stylesheet" type="text/css" media="print" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/css/custom.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- END THEME STYLES -->
+
+
+    <%--fancybox--%>
+
+    <script type="text/javascript" src="Fancybox/lib/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="Fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script type="text/javascript" src="Fancybox/source/jquery.fancybox.js?v=2.1.3"></script>
+    <link rel="stylesheet" type="text/css" href="Fancybox/source/jquery.fancybox.css?v=2.1.2" media="screen" />
+    <link rel="stylesheet" type="text/css" href="Fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+    <script type="text/javascript" src="Fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+    <link rel="stylesheet" type="text/css" href="Fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+    <script type="text/javascript" src="Fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+    <script type="text/javascript" src="Fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.5"></script>
+
+
+    <%--endfancybox--%>
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<!-- BEGIN BODY -->
+<body class="page-header-fixed">
+    <!-- BEGIN HEADER -->
+    <div class="header navbar navbar-fixed-top">
+        <!-- BEGIN TOP NAVIGATION BAR -->
+        <div class="header-inner">
+            <!-- BEGIN LOGO -->
+            <a class="navbar-brand" href="OrdersManagement.aspx">
+                 <p style="padding-left: 10px; padding-bottom: 5px; padding-top: 5px;">
+               
+                    <%--<img src="http://services.totiti.net/MetronicAdminTemplate/img/Icon_Restaurant_Text.png" alt="logo" width="100%" />--%>
+                      <strong style="color: white">I MILK</strong><span style="color: red"> CAFE</span>
+                     
+        
+                  
+                </p>
+            </a>
+            <!-- END LOGO -->
+             
+            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+            <a href="javascript:;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <img src="http://services.totiti.net/MetronicAdminTemplate/img/menu-toggler.png" alt="" />
+            </a>
+            <!-- END RESPONSIVE MENU TOGGLER -->
+            <!-- BEGIN TOP NAVIGATION MENU -->
+            <ul class="nav navbar-nav pull-right">
+                
+                <!-- BEGIN USER LOGIN DROPDOWN -->
+                <li class="dropdown user">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <%--<img alt="" src="http://services.totiti.net/MetronicAdminTemplate/img/avatar1_small.jpg"/>--%>  <%--ภาพ user login--%>
+                        <span class="username">
+                            <asp:Label ID="NameUserLabel" runat="server" Text="Label"></asp:Label>
+                        </span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a href="Logout.aspx">
+                                <i class="fa fa-key"></i>Log Out
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END USER LOGIN DROPDOWN -->
+            </ul>
+            <!-- END TOP NAVIGATION MENU -->
+        </div>
+        <!-- END TOP NAVIGATION BAR -->
+    </div>
+    <!-- END HEADER -->
+    <div class="clearfix">
+    </div>
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+        <!-- BEGIN SIDEBAR -->
+        <div class="page-sidebar-wrapper">
+            <div class="page-sidebar navbar-collapse collapse">
+                <!-- add "navbar-no-scroll" class to disable the scrolling of the sidebar menu -->
+                <!-- BEGIN SIDEBAR MENU -->
+                <ul class="page-sidebar-menu" data-auto-scroll="true" data-slide-speed="200">
+                    <li class="sidebar-toggler-wrapper">
+                        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                        <div class="sidebar-toggler hidden-phone">
+                        </div>
+                        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                    </li>
+
+                  <li runat="server" id="Li10" style="background-color: #323232; margin-top:20px;">
+                      <a href="#">
+
+                          <center>    <img src="Image/innofood.png" alt="" aria-label="center" style=" margin:5px;" width="50%" height="50%" /> 
+
+             </center>
+                      </a>
+<%--                        <p style="color: #989898; padding: 10px; text-align:center;">                           
+         
+     
+                             
+                        </p>--%>
+                    </li>
+
+                    <li runat="server" id="Li4">
+                        <a href="Dashboard.aspx">
+                            <i class="fa fa-eercast"></i>
+                            <span class="tile-body">หน้าเเรก</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+
+                     <li runat="server" id="Li2">
+                        <a href="OrdersManagement.aspx">
+                            <i class="fa fa-shopping-basket"></i>
+                            <span class="title">จัดการออเดอร์
+                            </span>
+                            <span class="selected"></span>
+                            <span class="badge badge-roundless badge-pink">
+                                <asp:Label ID="TicketOrder_Label" runat="server" Text="0"></asp:Label>
+                            </span>
+                        </a>
+                    </li>
+
+                     <li runat="server" id="Li11" style="background-color: #323232;">
+                        <p style="color: #989898; padding: 10px;">
+                            จัดการข้อมูล 
+                        </p>
+                    </li>
+
+                         <li runat="server" id="Li6">
+                        <a href="AddCategory.aspx">
+                            <i class="fa fa-cubes"></i>
+                            <span class="tile-body">ประเภทอาหาร&เครื่องดื่ม</span>
+                            <span class="arrow"></span>
+                        </a>
+                             <ul class="sub-menu">
+                            <li runat="server" id="Li15">
+                        <a href="ListCategory.aspx">
+                            <i class="fa fa-wrench"></i>
+                            <span class="tile-body">จัดการประเภทอาหารเเละเครื่องดื่ม</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                            <asp:Repeater ID="Repeater2" runat="server">
+                                <ItemTemplate>
+                                    <li class="<%#: ActiveType(Eval("Id").ToString(),"AddListCategory.aspx","Type") %>">
+                                        <a href='AddListCategory.aspx?Type=<%# Eval("Id") %>'>
+                                            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                                            <span class="title-body"><%# Eval("Name") %></span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </ul>
+                    </li>
+                          <li runat="server" id="Li13" visible="false">
+                        <a href="Tables.aspx">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="tile-body">โต๊ะอาหาร</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li runat="server" id="Li3" visible="false">
+                        <a href="AddList.aspx">
+                            <i class="fa fa-plus-square-o"></i>
+                            <span class="tile-body">เพิ่มรายการอาหาร&เครื่องดื่ม</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+
+                    <li runat="server" id="Li1">
+                        <a href="MenuBeverage.aspx?Category=0">
+                            <i class="fa fa-folder-open-o"></i>
+                            <span class="title-body">รายการอาหาร&เครื่องดื่ม</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu" id="subul">
+                           
+                            <asp:Repeater ID="Repeater1" runat="server">
+                                <ItemTemplate>
+                             <%# Eval("Title") %>
+
+
+                                  <li class="<%#: ActiveCate(Eval("Id").ToString(),"MenuBeverage.aspx","Category") %>">
+                                        
+                                        <a href='MenuBeverage.aspx?Category=<%# Eval("Id") %>&Type=<%# Eval("type") %>'>
+                                           
+                                            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                                            <span class="title-body"><%# Eval("Name") %></span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </ul>
+                    </li>
+                    <li runat="server" id="Li5">
+                        <a href="Promotion.aspx">
+                            <i class="fa fa-bullhorn"></i>
+                            <span class="title">โปรโมชั่น
+                            </span>
+                            <span class="selected"></span>
+                     
+                        </a>
+                    </li>
+                    <li runat="server" id="Li12">
+                        <a href="ManageAccount.aspx">
+                            <i class="fa fa-usd"></i>
+                            <span class="title">จัดการบัญชีร้าน
+                            </span>
+                            <span class="selected"></span>
+                     
+                        </a>
+                    </li>
+                    
+                    <li runat="server" id="Li7">
+                        <a href="">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title-body">ข้อมูลบัญชีผู้ใช้</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li runat="server" id="Li8">
+                                <a href="UserGroup.aspx">
+                                    <i class="fa fa-users"></i>
+                                    <span class="tile-body">รายชื่อกลุ่ม</span>
+                                    <span class="selected"></span>
+                                    <span class="badge badge-roundless badge-pink">
+                                        <asp:Label ID="UserGroup_Label" runat="server" Text="0"></asp:Label>
+                                    </span>
+                                </a>
+                            </li>
+                            <li runat="server" id="Li9">
+                                <a href="UserAccount.aspx">
+                                    <i class="fa fa-user"></i>
+                                    <span class="tile-body">รายชื่อบัญชีผู้ใช้</span>
+                                    <span class="selected"></span>
+                                    <span class="badge badge-roundless badge-pink">
+                                        <asp:Label ID="UserAccount_Label" runat="server" Text="0"></asp:Label>
+                                    </span>
+                                </a>
+
+                            </li>
+                             <li runat="server" id="Li14" visible="false">
+                                <a href="approve.aspx">
+                                    <i class="fa fa-user"></i>
+                                    <span class="tile-body">รายชื่อรออนุมัติเข้าใช้งาน</span>
+                                    <span class="selected"></span>
+                                    <span class="badge badge-roundless badge-pink">
+                                        <asp:Label ID="Label1" runat="server" Text="0"></asp:Label>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li runat="server" id="Litext" >
+                        <a href="TextMassage.aspx">
+                           <i class="fa fa-language" aria-hidden="true"></i>
+                            <span class="title">TextMessage
+                            </span>
+                            <span class="selected"></span>
+                     
+                        </a>
+                    </li>
+
+
+
+                    <%--<li runat="server" id="Li1">
+                        <a href="OrderServices.aspx">
+                            <i class="fa fa-list"></i>
+                            <span class="title">Services
+                            </span>
+                            <span class="selected"></span>
+                            <span class="badge badge-roundless badge-pink">
+                                <asp:Label ID="OrderServices_Label" runat="server" Text="0"></asp:Label>
+                            </span>
+                        </a>
+                    </li>--%>
+                   
+                    <%--<li runat="server" id="Li3">
+                        <a href="PaymentTicketOrder.aspx">
+                            <i class="fa fa-money"></i>
+                            <span class="title">Payments
+                            </span>
+                            <span class="selected"></span>
+                            <span class="badge badge-roundless badge-pink">
+                                <asp:Label ID="PaymentTicketOrder_Label" runat="server" Text="0"></asp:Label>
+                            </span>
+                        </a>
+                    </li>--%>
+
+                    <li runat="server" id="AdminLi" visible="false">
+                        <a href="javascript:;">
+                            <i class="fa fa-gear"></i>
+                            <span class="title">Administrator
+                            </span>
+                            <span class="selected"></span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li runat="server" id="NodeGroupLi" visible="false">
+                                <a href="node_group_manage.aspx">Nodes Group Management</a>
+                            </li>
+                            <li runat="server" id="NodeLi" visible="false">
+                                <a href="node_manage.aspx">Nodes Management</a>
+                            </li>
+                            <li runat="server" id="SensorTypeLi" visible="false">
+                                <a href="sensor_type_manage.aspx">Sensors Type Management</a>
+                            </li>
+
+                            <li runat="server" id="ManageUserLi" visible="false">
+                                <a href="javascript:;">Users Management
+								<span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li runat="server" id="UserLi">
+                                        <a href="user_manage.aspx">
+                                            <i class="fa fa-user"></i>All Users
+                                        </a>
+                                    </li>
+                                    <li runat="server" id="UserGroupLi">
+                                        <a href="user_group_manage.aspx">
+                                            <i class="fa fa-group"></i>Users Group
+                                        </a>
+
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- END SIDEBAR MENU -->
+            </div>
+        </div>
+        <!-- END SIDEBAR -->
+        <!-- BEGIN CONTENT -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+                <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                <h4 class="modal-title">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                Widget settings form goes here
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn blue">Save changes</button>
+                                <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+                <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+                <!-- BEGIN STYLE CUSTOMIZER -->
+                <div class="theme-panel hidden-xs hidden-sm">
+                    <div class="toggler">
+                    </div>
+                    <div class="toggler-close">
+                    </div>
+                    <div class="theme-options">
+                        <div class="theme-option theme-colors clearfix">
+                            <span>THEME COLOR
+                            </span>
+                            <ul>
+                                <li class="color-black current color-default" data-style="default"></li>
+                                <li class="color-blue" data-style="blue"></li>
+                                <li class="color-brown" data-style="brown"></li>
+                                <li class="color-purple" data-style="purple"></li>
+                                <li class="color-grey" data-style="grey"></li>
+                                <li class="color-white color-light" data-style="light"></li>
+                            </ul>
+                        </div>
+                        <div class="theme-option">
+                            <span>Layout
+                            </span>
+                            <select class="layout-option form-control input-small">
+                                <option value="fluid" selected="selected">Fluid</option>
+                                <option value="boxed">Boxed</option>
+                            </select>
+                        </div>
+                        <div class="theme-option">
+                            <span>Header
+                            </span>
+                            <select class="header-option form-control input-small">
+                                <option value="fixed" selected="selected">Fixed</option>
+                                <option value="default">Default</option>
+                            </select>
+                        </div>
+                        <div class="theme-option">
+                            <span>Sidebar
+                            </span>
+                            <select class="sidebar-option form-control input-small">
+                                <option value="fixed">Fixed</option>
+                                <option value="default" selected="selected">Default</option>
+                            </select>
+                        </div>
+                        <div class="theme-option">
+                            <span>Sidebar Position
+                            </span>
+                            <select class="sidebar-pos-option form-control input-small">
+                                <option value="left" selected="selected">Left</option>
+                                <option value="right">Right</option>
+                            </select>
+                        </div>
+                        <div class="theme-option">
+                            <span>Footer
+                            </span>
+                            <select class="footer-option form-control input-small">
+                                <option value="fixed">Fixed</option>
+                                <option value="default" selected="selected">Default</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- END STYLE CUSTOMIZER -->
+                <!-- BEGIN PAGE HEADER-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="page-title"><strong style="color: black">I MILK</strong><span style="color: red"> CAFE</span></h3>
+                        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                        <asp:ContentPlaceHolder ID="TITLE_BREADCRUMBContentPlaceHolder" runat="server">
+                        </asp:ContentPlaceHolder>
+
+                        <!-- END PAGE TITLE & BREADCRUMB-->
+                    </div>
+                </div>
+                <!-- END PAGE HEADER-->
+                <!-- BEGIN DASHBOARD STATS -->
+                <div class="row"></div>
+                <div class="clearfix"></div>
+                <div class="row">
+                    <form id="form1" runat="server">
+                        <div class="col-md-12">
+                            <asp:Panel ID="Center_Panel" runat="server" Visible="true">
+                                <asp:ContentPlaceHolder ID="CONTENTContentPlaceHolder" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </asp:Panel>
+                        </div>
+                    </form>
+                </div>
+                <!-- END DASHBOARD STATS -->
+
+            </div>
+        </div>
+        <!-- END CONTENT -->
+    </div>
+    <!-- END CONTAINER -->
+    <!-- BEGIN FOOTER -->
+    <div class="footer">
+        <div class="footer-inner">
+            2017 &copy; SOFTWARW ENGINEER
+        </div>
+        <div class="footer-tools">
+            <span class="go-top">
+                <i class="fa fa-angle-up"></i>
+            </span>
+        </div>
+    </div>
+    <!-- END FOOTER -->
+    <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- BEGIN CORE PLUGINS -->
+    <!--[if lt IE 9]>
+<script src="http://services.totiti.net/MetronicAdminTemplate/plugins/respond.min.js"></script>
+<script src="http://services.totiti.net/MetronicAdminTemplate/plugins/excanvas.min.js"></script> 
+<![endif]-->
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/fancybox/source/jquery.fancybox.js" type="text/javascript"></script>
+
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap/js/bootstrap2-typeahead.min.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script type="text/javascript" src="http://services.totiti.net/MetronicAdminTemplate/plugins/select2/select2.min.js"></script>
+    <script type="text/javascript" src="http://services.totiti.net/MetronicAdminTemplate/plugins/data-tables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://services.totiti.net/MetronicAdminTemplate/plugins/data-tables/DT_bootstrap.js"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script type="text/javascript" src="http://services.totiti.net/MetronicAdminTemplate/plugins/clockface/js/clockface.js"></script>
+    <script type="text/javascript" src="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+    <script type="text/javascript" src="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="http://services.totiti.net/MetronicAdminTemplate/scripts/core/app.js"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/scripts/custom/table-advanced.js"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/scripts/custom/ui-extended-modals.js"></script>
+
+    <script src="http://services.totiti.net/MetronicAdminTemplate/scripts/custom/components-pickers.js"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script>
+        jQuery(document).ready(function () {
+            // initiate layout and plugins
+            App.init();
+            TableAdvanced.init();
+            //UIExtendedModals.init();
+            //fancybox();
+            ComponentsPickers.init();
+            
+        });
+	$(document).ready(function() {
+		
+		$('.fancybox').fancybox();
+	
+		$(".fancybox-effects-popup").fancybox({
+			helpers: {
+				title : {
+					type : 'outside'
+				},
+				overlay : {
+					speedOut : 0
+				}
+			}
+			}).trigger('click');
+		});
+
+    </script>
+    <!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>
+

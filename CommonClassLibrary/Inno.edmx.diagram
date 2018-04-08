@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7acf800dcd364722b8e056751541503e" Name="Diagram1">
+        <EntityTypeShape EntityType="ImilkModel.Account" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ImilkModel.AccountGroup" Width="1.5" PointX="3" PointY="18.75" />
+        <EntityTypeShape EntityType="ImilkModel.Category" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ImilkModel.CheckIn" Width="1.5" PointX="3" PointY="14.625" />
+        <EntityTypeShape EntityType="ImilkModel.CheckOut" Width="1.5" PointX="3" PointY="10.625" />
+        <EntityTypeShape EntityType="ImilkModel.Comment" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ImilkModel.ConfirmPayment" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ImilkModel.OrderDetail" Width="1.5" PointX="6" PointY="10.5" />
+        <EntityTypeShape EntityType="ImilkModel.Payment" Width="1.5" PointX="6" PointY="14.625" />
+        <EntityTypeShape EntityType="ImilkModel.Product" Width="1.5" PointX="3" PointY="32.375" />
+        <EntityTypeShape EntityType="ImilkModel.ProductCate" Width="1.5" PointX="5.25" PointY="41" />
+        <EntityTypeShape EntityType="ImilkModel.ProductDetail" Width="1.5" PointX="5.25" PointY="23" />
+        <EntityTypeShape EntityType="ImilkModel.ProductOrder" Width="1.5" PointX="8.25" PointY="22.625" />
+        <EntityTypeShape EntityType="ImilkModel.Table" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ImilkModel.TextContent" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ImilkModel.TextMessage" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ImilkModel.TicketOrder" Width="1.5" PointX="0.75" PointY="9.5" />
+        <EntityTypeShape EntityType="ImilkModel.TicketOrderDetail" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ImilkModel.TypeCate" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ImilkModel.UserAccount" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="ImilkModel.UserGroup" Width="1.5" PointX="0.75" PointY="19.875" />
+        <AssociationConnector Association="ImilkModel.FK_AccountGroup_UserAccount" />
+        <AssociationConnector Association="ImilkModel.FK_AccountGroup_UserGroup" />
+        <AssociationConnector Association="ImilkModel.FK_CheckIn_TicketOrder" />
+        <AssociationConnector Association="ImilkModel.FK_CheckIn_UserAccount" />
+        <AssociationConnector Association="ImilkModel.FK_CheckOut_TicketOrder" />
+        <AssociationConnector Association="ImilkModel.FK_CheckOut_UserAccount" />
+        <AssociationConnector Association="ImilkModel.FK_OrderDetail_TicketOrder" />
+        <AssociationConnector Association="ImilkModel.FK_OrderDetail_UserAccount" />
+        <AssociationConnector Association="ImilkModel.FK_Payment_TicketOrder" />
+        <AssociationConnector Association="ImilkModel.FK_Payment_UserAccount" />
+        <AssociationConnector Association="ImilkModel.FK_Product_UserAccount" />
+        <AssociationConnector Association="ImilkModel.FK_ProductCate_Product" />
+        <AssociationConnector Association="ImilkModel.FK_ProductDetail_Product" />
+        <AssociationConnector Association="ImilkModel.FK_ProductOrder_Product" />
+        <AssociationConnector Association="ImilkModel.FK_ProductDetail_UserAccount" />
+        <AssociationConnector Association="ImilkModel.FK_ProductOrder_TicketOrder" />
+        <AssociationConnector Association="ImilkModel.FK_ProductOrder_UserAccount" />
+        <AssociationConnector Association="ImilkModel.FK_ConfirmPayment_Account" />
+        <AssociationConnector Association="ImilkModel.FK_ConfirmPayment_TicketOrder" />
+        <AssociationConnector Association="ImilkModel.FK_ConfirmPayment_UserAccount" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

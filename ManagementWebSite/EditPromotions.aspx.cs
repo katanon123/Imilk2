@@ -1,0 +1,337 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class EditBeverage : System.Web.UI.Page
+{
+    private CommonClassLibrary.ImilkEntities1 innofoodmodel;
+    public EditBeverage()
+    {
+        innofoodmodel = new CommonClassLibrary.ImilkEntities1();
+    }
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            System.Web.UI.HtmlControls.HtmlGenericControl Services = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("Li5");
+            Services.Attributes.Add("class", "active");
+
+            int IDProduct = int.Parse(Request.QueryString["IDProduct"]);
+
+           
+            CommonClassLibrary.CommonDataSet.ProductDetailDataTable collection = new CommonClassLibrary.CommonDataSetTableAdapters.ProductDetailTableAdapter().GetDataByProductShowName(IDProduct);
+            foreach (CommonClassLibrary.CommonDataSet.ProductDetailRow item in collection)
+            {
+                Label4.Text = item.KeyValue;
+                CommonClassLibrary.CommonDataSet.TextContentDataTable collection111 = new CommonClassLibrary.CommonDataSetTableAdapters.TextContentTableAdapter().GetDataById(long.Parse(item.KeyValue));
+                foreach (CommonClassLibrary.CommonDataSet.TextContentRow item111 in collection111)
+                {
+                    this.Name_TextBox.Text = item111.Thai;
+                    this.NameEN_TextBox.Text = item111.English;
+
+                }
+            }
+
+            CommonClassLibrary.CommonDataSet.ProductDetailDataTable collection2 = new CommonClassLibrary.CommonDataSetTableAdapters.ProductDetailTableAdapter().GetDataByProductShowDetail(IDProduct);
+            foreach (CommonClassLibrary.CommonDataSet.ProductDetailRow item2 in collection2)
+            {
+                Label5.Text = item2.KeyValue;
+
+                CommonClassLibrary.CommonDataSet.TextContentDataTable collection222 = new CommonClassLibrary.CommonDataSetTableAdapters.TextContentTableAdapter().GetDataById(long.Parse(item2.KeyValue));
+
+                foreach (CommonClassLibrary.CommonDataSet.TextContentRow item222 in collection222)
+                {
+                    this.Detail_TextBox.Text = item222.Thai;
+                    this.DetailEN_TextBox.Text = item222.English;
+                }
+            }
+            
+            
+            
+            getImage();
+        }
+    }
+    public void getImage()
+    {
+        int IDProduct = int.Parse(Request.QueryString["IDProduct"]);
+        try { 
+        var inno = innofoodmodel.ProductDetails.Where(x => x.Product == IDProduct).Where(x => x.KeyName == "Picture").First().KeyValue;
+        this.Picture_Image.ImageUrl = inno;
+        }
+        catch (Exception ex) { 
+            this.Picture_Image.ImageUrl = "~/Image/innofood.jpg";
+        }
+
+    }
+
+    protected void Confirm_Button_Click(object sender, EventArgs e)
+    {
+        int IDProduct = int.Parse(Request.QueryString["IDProduct"]);
+        //Name
+         if (new CommonClassLibrary.CommonDataSetTableAdapters.TextContentTableAdapter().UpdateQueryById(Name_TextBox.Text, NameEN_TextBox.Text," ",DateTime.Now,1, long.Parse(Label4.Text)) == 1)
+        {
+            this.SuccessPanel.Visible = true;
+            this.SuccessLabel.Text = "บันทึกข้อมูลสำเร็จ";
+            this.ErrorPanel.Visible = false;
+        }
+         else
+         {
+             this.SuccessPanel.Visible = false;
+             this.ErrorLabel.Text = "บันทึกข้อมูลไม่สำเร็จ";
+             this.ErrorPanel.Visible = true;
+        }
+        //Detail
+         if (new CommonClassLibrary.CommonDataSetTableAdapters.TextContentTableAdapter().UpdateQueryById(Detail_TextBox.Text, DetailEN_TextBox.Text, " ", DateTime.Now,1, long.Parse(Label5.Text)) == 1)
+         {
+             this.SuccessPanel.Visible = true;
+             this.SuccessLabel.Text = "บันทึกข้อมูลสำเร็จ";
+             this.ErrorPanel.Visible = false;
+         }
+         else
+         {
+             this.SuccessPanel.Visible = false;
+             this.ErrorLabel.Text = "บันทึกข้อมูลไม่สำเร็จ";
+             this.ErrorPanel.Visible = true;
+         }
+        //if (new CommonClassLibrary.CommonDataSetTableAdapters.ProductDetailTableAdapter().UpdateQuery(IDProduct, DateTime.Now, DateTime.Now, 1, 1, "Name", this.Name_TextBox.Text) == 1)
+        //{
+        //    this.SuccessPanel.Visible = true;
+        //    this.SuccessLabel.Text = "บันทึกข้อมูลสำเร็จ";
+        //    this.ErrorPanel.Visible = false;
+        //    this.PictureSuccessPanel.Visible = false;
+        //    this.PictureErrorPanel.Visible = false;
+        //}
+        //else
+        //{
+        //    this.SuccessPanel.Visible = false;
+        //    this.ErrorLabel.Text = "บันทึกข้อมูลไม่สำเร็จ";
+        //    this.ErrorPanel.Visible = true;
+        //    this.PictureSuccessPanel.Visible = false;
+        //    this.PictureErrorPanel.Visible = false;
+        //}
+     
+       
+
+        if (Picture_FileUpload.HasFile) {
+
+        string namefile = SaveFile(Picture_FileUpload);
+
+        CommonClassLibrary.CommonDataSet.ProductDetailDataTable collection3 = new CommonClassLibrary.CommonDataSetTableAdapters.ProductDetailTableAdapter().GetDataByProduceShowImage(IDProduct);
+        if (collection3.Rows.Count > 0)
+        {
+            if (new CommonClassLibrary.CommonDataSetTableAdapters.ProductDetailTableAdapter().UpdateQuery(IDProduct, DateTime.Now, DateTime.Now, 1, 1, "Picture", "Image/" + namefile) == 1)
+            {
+                if (new CommonClassLibrary.CommonDataSetTableAdapters.ProductDetailTableAdapter().UpdateQuery(IDProduct, DateTime.Now, DateTime.Now, 1, 1, "Thumbnail", "Thumbnail/" + namefile) == 1)
+                {
+                        this.SuccessPanel.Visible = true;
+                        this.SuccessLabel.Text = "บันทึกข้อมูลสำเร็จ";
+                        this.ErrorPanel.Visible = false;
+                        getImage();
+                }
+                else
+                {
+                        this.SuccessPanel.Visible = false;
+                        this.ErrorLabel.Text = "บันทึกข้อมูลไม่สำเร็จ";
+                        this.ErrorPanel.Visible = true;
+                    }
+            }
+            else
+            {
+                    this.SuccessPanel.Visible = false;
+                    this.ErrorLabel.Text = "บันทึกข้อมูลไม่สำเร็จ";
+                    this.ErrorPanel.Visible = true;
+                }
+        }
+        else
+        {
+            if (new CommonClassLibrary.CommonDataSetTableAdapters.ProductDetailTableAdapter().InsertQuery(IDProduct, DateTime.Now, DateTime.Now, 1, 1, "Picture", "Image/" + namefile) == 1)
+            {
+                if (new CommonClassLibrary.CommonDataSetTableAdapters.ProductDetailTableAdapter().InsertQuery(IDProduct, DateTime.Now, DateTime.Now, 1, 1, "Thumbnail", "Thumbnail/" + namefile) == 1)
+                {
+                        this.SuccessPanel.Visible = true;
+                        this.SuccessLabel.Text = "บันทึกข้อมูลสำเร็จ";
+                        this.ErrorPanel.Visible = false;
+                        getImage();
+                }
+                else
+                {
+                        this.SuccessPanel.Visible = false;
+                        this.ErrorLabel.Text = "บันทึกข้อมูลไม่สำเร็จ";
+                        this.ErrorPanel.Visible = true;
+                    }
+            }
+            else
+            {
+                    this.SuccessPanel.Visible = false;
+                    this.ErrorLabel.Text = "บันทึกข้อมูลไม่สำเร็จ";
+                    this.ErrorPanel.Visible = true;
+                }
+        }
+    }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        //for (int i = 0; i < Category_CheckBoxList.Items.Count; i++)
+        //{
+        //    if (Category_CheckBoxList.Items[i].Selected)
+        //    {
+        //        CommonClassLibrary.CommonDataSet.ProductCateDataTable collection = new CommonClassLibrary.CommonDataSetTableAdapters.ProductCateTableAdapter().GetDataByProductandCategory(IDProduct, int.Parse(Category_CheckBoxList.SelectedValue));
+        //        if (collection.Rows.Count == 0)
+        //        {
+        //            if (new CommonClassLibrary.CommonDataSetTableAdapters.ProductCateTableAdapter().InsertQuery(IDProduct, int.Parse(Category_CheckBoxList.SelectedValue)) == 1)
+        //            {
+        //                this.SuccessPanel.Visible = true;
+        //                this.SuccessLabel.Text = "บันทึกข้อมูลสำเร็จ";
+        //                this.ErrorPanel.Visible = false;
+        //                this.PictureSuccessPanel.Visible = false;
+        //                this.PictureErrorPanel.Visible = false;
+        //            }
+        //            else
+        //            {
+        //                this.SuccessPanel.Visible = false;
+        //                this.ErrorLabel.Text = "บันทึกข้อมูลไม่สำเร็จ";
+        //                this.ErrorPanel.Visible = true;
+        //                this.PictureSuccessPanel.Visible = false;
+        //                this.PictureErrorPanel.Visible = false;
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        CommonClassLibrary.CommonDataSet.ProductCateDataTable collection2 = new CommonClassLibrary.CommonDataSetTableAdapters.ProductCateTableAdapter().GetDataByProductandCategory(IDProduct, i + 1);
+        //        if (collection2.Rows.Count == 1)
+        //        {
+        //            if (new CommonClassLibrary.CommonDataSetTableAdapters.ProductCateTableAdapter().DeleteQueryProductandCategory(IDProduct, i + 1) == 1)
+        //            {
+        //                this.SuccessPanel.Visible = true;
+        //                this.SuccessLabel.Text = "บันทึกข้อมูลสำเร็จ";
+        //                this.ErrorPanel.Visible = false;
+        //                this.PictureSuccessPanel.Visible = false;
+        //                this.PictureErrorPanel.Visible = false;
+        //            }
+        //            else
+        //            {
+        //                this.SuccessPanel.Visible = false;
+        //                this.ErrorLabel.Text = "บันทึกข้อมูลไม่สำเร็จ";
+        //                this.ErrorPanel.Visible = true;
+        //                this.PictureSuccessPanel.Visible = false;
+        //                this.PictureErrorPanel.Visible = false;
+        //            }
+        //        }
+        //    }
+        //}
+        }
+    string SaveFile(FileUpload fileUpload)
+    {
+        HttpPostedFile UpFileProduct = fileUpload.PostedFile;
+
+        string file = System.IO.Path.GetExtension(UpFileProduct.FileName);
+        string rename = "";
+
+
+        if (file == ".jpg" || file == ".png" || file == ".JPG" || file == ".PNG" || file == ".jpeg" || file == ".JPEG")
+        {
+            rename = DateTime.Now.ToString("ddMMyyyyHHmmss");
+
+            System.Drawing.Image fullsize = System.Drawing.Image.FromStream(fileUpload.PostedFile.InputStream);
+
+            int Width = 720, Height = 480;
+            int NewWidth = 0, NewHeight = 0;
+            decimal Ratio, Temp;
+
+            Bitmap BMP = new Bitmap(fullsize);
+
+            if (BMP.Width > BMP.Height)
+            {
+                Ratio = (decimal)Width / BMP.Width;
+                NewWidth = Width;
+                Temp = BMP.Height * Ratio;
+                NewHeight = (int)Temp;
+            }
+            else
+            {
+                Ratio = (decimal)Height / BMP.Height;
+                NewHeight = Height;
+                Temp = BMP.Width * Ratio;
+                NewWidth = (int)Temp;
+            }
+
+            Bitmap NewBMP = new Bitmap(BMP, NewWidth, NewHeight);
+            Graphics graphice = Graphics.FromImage(NewBMP);
+            graphice.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            graphice.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            graphice.DrawImage(BMP, 0, 0, NewWidth, NewHeight);
+
+            string path = System.IO.Path.Combine(Server.MapPath("~/Image/"), rename + file);
+
+            NewBMP.Save(path);
+
+            BMP.Dispose();
+            NewBMP.Dispose();
+            graphice.Dispose();
+
+
+            System.Drawing.Image fullsizeThumbail = System.Drawing.Image.FromStream(fileUpload.PostedFile.InputStream);
+            int WidthThumbnail = 320, HeightThumbnail = 320;
+            int NewWidthThumbnail = 0, NewHeightThumbnail = 0;
+            decimal RatioThumbnail, TempThumbnail;
+
+            Bitmap BMPThumbnail = new Bitmap(fullsizeThumbail);
+
+            if (BMPThumbnail.Width > BMPThumbnail.Height)
+            {
+                RatioThumbnail = (decimal)WidthThumbnail / BMPThumbnail.Width;
+                NewWidthThumbnail = WidthThumbnail;
+                TempThumbnail = BMPThumbnail.Height * RatioThumbnail;
+                NewHeightThumbnail = (int)TempThumbnail;
+            }
+            else
+            {
+                RatioThumbnail = (decimal)HeightThumbnail / BMPThumbnail.Height;
+                NewHeightThumbnail = HeightThumbnail;
+                TempThumbnail = BMPThumbnail.Height * RatioThumbnail;
+                NewWidthThumbnail = (int)TempThumbnail;
+            }
+
+            Bitmap NewBMPThumbnail = new Bitmap(BMPThumbnail, NewWidthThumbnail, NewHeightThumbnail);
+            Graphics graphicthumbnail = Graphics.FromImage(NewBMPThumbnail);
+            graphicthumbnail.SmoothingMode = SmoothingMode.AntiAlias;
+            graphicthumbnail.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            graphicthumbnail.DrawImage(BMPThumbnail, 0, 0, NewWidthThumbnail, NewHeightThumbnail);
+
+            string paththumbnail = System.IO.Path.Combine(Server.MapPath("~/Thumbnail/"), rename + file);
+
+            NewBMPThumbnail.Save(paththumbnail);
+
+            BMPThumbnail.Dispose();
+            NewBMPThumbnail.Dispose();
+            graphicthumbnail.Dispose();
+        }
+
+        return rename + file;
+    }
+    protected void SuccessLinkButton_Click(object sender, EventArgs e)
+    {
+        this.SuccessPanel.Visible = false;
+    }
+    protected void ErrorLinkButton_Click(object sender, EventArgs e)
+    {
+        this.ErrorPanel.Visible = false;
+    }
+}

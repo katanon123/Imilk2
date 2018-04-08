@@ -1,0 +1,639 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ImilkModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ImilkEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="ImilkModel.Account" />
+    <EntitySet Name="AccountGroups" EntityType="ImilkModel.AccountGroup" />
+    <EntitySet Name="Categories" EntityType="ImilkModel.Category" />
+    <EntitySet Name="CheckIns" EntityType="ImilkModel.CheckIn" />
+    <EntitySet Name="CheckOuts" EntityType="ImilkModel.CheckOut" />
+    <EntitySet Name="Comments" EntityType="ImilkModel.Comment" />
+    <EntitySet Name="ConfirmPayments" EntityType="ImilkModel.ConfirmPayment" />
+    <EntitySet Name="OrderDetails" EntityType="ImilkModel.OrderDetail" />
+    <EntitySet Name="Payments" EntityType="ImilkModel.Payment" />
+    <EntitySet Name="Products" EntityType="ImilkModel.Product" />
+    <EntitySet Name="ProductCates" EntityType="ImilkModel.ProductCate" />
+    <EntitySet Name="ProductDetails" EntityType="ImilkModel.ProductDetail" />
+    <EntitySet Name="ProductOrders" EntityType="ImilkModel.ProductOrder" />
+    <EntitySet Name="Tables" EntityType="ImilkModel.Table" />
+    <EntitySet Name="TextContents" EntityType="ImilkModel.TextContent" />
+    <EntitySet Name="TextMessages" EntityType="ImilkModel.TextMessage" />
+    <EntitySet Name="TicketOrders" EntityType="ImilkModel.TicketOrder" />
+    <EntitySet Name="TicketOrderDetails" EntityType="ImilkModel.TicketOrderDetail" />
+    <EntitySet Name="TypeCates" EntityType="ImilkModel.TypeCate" />
+    <EntitySet Name="UserAccounts" EntityType="ImilkModel.UserAccount" />
+    <EntitySet Name="UserGroups" EntityType="ImilkModel.UserGroup" />
+    <AssociationSet Name="FK_AccountGroup_UserAccount" Association="ImilkModel.FK_AccountGroup_UserAccount">
+      <End Role="UserAccount" EntitySet="UserAccounts" />
+      <End Role="AccountGroup" EntitySet="AccountGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AccountGroup_UserGroup" Association="ImilkModel.FK_AccountGroup_UserGroup">
+      <End Role="UserGroup" EntitySet="UserGroups" />
+      <End Role="AccountGroup" EntitySet="AccountGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckIn_TicketOrder" Association="ImilkModel.FK_CheckIn_TicketOrder">
+      <End Role="TicketOrder" EntitySet="TicketOrders" />
+      <End Role="CheckIn" EntitySet="CheckIns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckIn_UserAccount" Association="ImilkModel.FK_CheckIn_UserAccount">
+      <End Role="UserAccount" EntitySet="UserAccounts" />
+      <End Role="CheckIn" EntitySet="CheckIns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckOut_TicketOrder" Association="ImilkModel.FK_CheckOut_TicketOrder">
+      <End Role="TicketOrder" EntitySet="TicketOrders" />
+      <End Role="CheckOut" EntitySet="CheckOuts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckOut_UserAccount" Association="ImilkModel.FK_CheckOut_UserAccount">
+      <End Role="UserAccount" EntitySet="UserAccounts" />
+      <End Role="CheckOut" EntitySet="CheckOuts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetail_TicketOrder" Association="ImilkModel.FK_OrderDetail_TicketOrder">
+      <End Role="TicketOrder" EntitySet="TicketOrders" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetail_UserAccount" Association="ImilkModel.FK_OrderDetail_UserAccount">
+      <End Role="UserAccount" EntitySet="UserAccounts" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_TicketOrder" Association="ImilkModel.FK_Payment_TicketOrder">
+      <End Role="TicketOrder" EntitySet="TicketOrders" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_UserAccount" Association="ImilkModel.FK_Payment_UserAccount">
+      <End Role="UserAccount" EntitySet="UserAccounts" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_UserAccount" Association="ImilkModel.FK_Product_UserAccount">
+      <End Role="UserAccount" EntitySet="UserAccounts" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductCate_Product" Association="ImilkModel.FK_ProductCate_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductCate" EntitySet="ProductCates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductDetail_Product" Association="ImilkModel.FK_ProductDetail_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductDetail" EntitySet="ProductDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductOrder_Product" Association="ImilkModel.FK_ProductOrder_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductOrder" EntitySet="ProductOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductDetail_UserAccount" Association="ImilkModel.FK_ProductDetail_UserAccount">
+      <End Role="UserAccount" EntitySet="UserAccounts" />
+      <End Role="ProductDetail" EntitySet="ProductDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductOrder_TicketOrder" Association="ImilkModel.FK_ProductOrder_TicketOrder">
+      <End Role="TicketOrder" EntitySet="TicketOrders" />
+      <End Role="ProductOrder" EntitySet="ProductOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductOrder_UserAccount" Association="ImilkModel.FK_ProductOrder_UserAccount">
+      <End Role="UserAccount" EntitySet="UserAccounts" />
+      <End Role="ProductOrder" EntitySet="ProductOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConfirmPayment_Account" Association="ImilkModel.FK_ConfirmPayment_Account">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="ConfirmPayment" EntitySet="ConfirmPayments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConfirmPayment_TicketOrder" Association="ImilkModel.FK_ConfirmPayment_TicketOrder">
+      <End Role="TicketOrder" EntitySet="TicketOrders" />
+      <End Role="ConfirmPayment" EntitySet="ConfirmPayments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConfirmPayment_UserAccount" Association="ImilkModel.FK_ConfirmPayment_UserAccount">
+      <End Role="UserAccount" EntitySet="UserAccounts" />
+      <End Role="ConfirmPayment" EntitySet="ConfirmPayments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Idname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Bank" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Sector" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ConfirmPayments" Relationship="ImilkModel.FK_ConfirmPayment_Account" FromRole="Account" ToRole="ConfirmPayment" />
+  </EntityType>
+  <EntityType Name="AccountGroup">
+    <Key>
+      <PropertyRef Name="UserAccount" />
+      <PropertyRef Name="UserGroup" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserAccount" Type="Int64" Nullable="false" />
+    <Property Name="UserGroup" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="UserAccount1" Relationship="ImilkModel.FK_AccountGroup_UserAccount" FromRole="AccountGroup" ToRole="UserAccount" />
+    <NavigationProperty Name="UserGroup1" Relationship="ImilkModel.FK_AccountGroup_UserGroup" FromRole="AccountGroup" ToRole="UserGroup" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ImageURL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TypeId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CheckIn">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TicketOrder" Type="Int64" Nullable="false" />
+    <Property Name="Remark" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="TicketOrder1" Relationship="ImilkModel.FK_CheckIn_TicketOrder" FromRole="CheckIn" ToRole="TicketOrder" />
+    <NavigationProperty Name="UserAccount" Relationship="ImilkModel.FK_CheckIn_UserAccount" FromRole="CheckIn" ToRole="UserAccount" />
+  </EntityType>
+  <EntityType Name="CheckOut">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TicketOrder" Type="Int64" Nullable="false" />
+    <Property Name="Remark" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="TicketOrder1" Relationship="ImilkModel.FK_CheckOut_TicketOrder" FromRole="CheckOut" ToRole="TicketOrder" />
+    <NavigationProperty Name="UserAccount" Relationship="ImilkModel.FK_CheckOut_UserAccount" FromRole="CheckOut" ToRole="UserAccount" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Comment1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Create_By" Type="Int64" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int64" />
+  </EntityType>
+  <EntityType Name="ConfirmPayment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Account" Type="Int64" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <Property Name="UrlImage" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Detiail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TicketOrder" Type="Int64" Nullable="false" />
+    <Property Name="Id_user" Type="Int64" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="ImilkModel.FK_ConfirmPayment_Account" FromRole="ConfirmPayment" ToRole="Account" />
+    <NavigationProperty Name="TicketOrder1" Relationship="ImilkModel.FK_ConfirmPayment_TicketOrder" FromRole="ConfirmPayment" ToRole="TicketOrder" />
+    <NavigationProperty Name="UserAccount" Relationship="ImilkModel.FK_ConfirmPayment_UserAccount" FromRole="ConfirmPayment" ToRole="UserAccount" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TicketOrder" Type="Int64" Nullable="false" />
+    <Property Name="Customer" Type="Int64" Nullable="false" />
+    <Property Name="CheckInDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CheckOutDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TicketOrder1" Relationship="ImilkModel.FK_OrderDetail_TicketOrder" FromRole="OrderDetail" ToRole="TicketOrder" />
+    <NavigationProperty Name="UserAccount" Relationship="ImilkModel.FK_OrderDetail_UserAccount" FromRole="OrderDetail" ToRole="UserAccount" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TicketOrder" Type="Int64" Nullable="false" />
+    <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="TicketOrder1" Relationship="ImilkModel.FK_Payment_TicketOrder" FromRole="Payment" ToRole="TicketOrder" />
+    <NavigationProperty Name="UserAccount" Relationship="ImilkModel.FK_Payment_UserAccount" FromRole="Payment" ToRole="UserAccount" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="UserAccount" Relationship="ImilkModel.FK_Product_UserAccount" FromRole="Product" ToRole="UserAccount" />
+    <NavigationProperty Name="ProductCates" Relationship="ImilkModel.FK_ProductCate_Product" FromRole="Product" ToRole="ProductCate" />
+    <NavigationProperty Name="ProductDetails" Relationship="ImilkModel.FK_ProductDetail_Product" FromRole="Product" ToRole="ProductDetail" />
+    <NavigationProperty Name="ProductOrders" Relationship="ImilkModel.FK_ProductOrder_Product" FromRole="Product" ToRole="ProductOrder" />
+  </EntityType>
+  <EntityType Name="ProductCate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product" Type="Int64" Nullable="false" />
+    <Property Name="Category" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Product1" Relationship="ImilkModel.FK_ProductCate_Product" FromRole="ProductCate" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="ProductDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product" Type="Int64" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
+    <Property Name="KeyName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="KeyValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Product1" Relationship="ImilkModel.FK_ProductDetail_Product" FromRole="ProductDetail" ToRole="Product" />
+    <NavigationProperty Name="UserAccount" Relationship="ImilkModel.FK_ProductDetail_UserAccount" FromRole="ProductDetail" ToRole="UserAccount" />
+  </EntityType>
+  <EntityType Name="ProductOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TicketOrder" Type="Int64" Nullable="false" />
+    <Property Name="Product" Type="Int64" Nullable="false" />
+    <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="3" />
+    <NavigationProperty Name="Product1" Relationship="ImilkModel.FK_ProductOrder_Product" FromRole="ProductOrder" ToRole="Product" />
+    <NavigationProperty Name="TicketOrder1" Relationship="ImilkModel.FK_ProductOrder_TicketOrder" FromRole="ProductOrder" ToRole="TicketOrder" />
+    <NavigationProperty Name="UserAccount" Relationship="ImilkModel.FK_ProductOrder_UserAccount" FromRole="ProductOrder" ToRole="UserAccount" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TextContent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Thai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="English" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TextMessage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Thai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="English" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Chinese" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TicketOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CheckIns" Relationship="ImilkModel.FK_CheckIn_TicketOrder" FromRole="TicketOrder" ToRole="CheckIn" />
+    <NavigationProperty Name="CheckOuts" Relationship="ImilkModel.FK_CheckOut_TicketOrder" FromRole="TicketOrder" ToRole="CheckOut" />
+    <NavigationProperty Name="OrderDetails" Relationship="ImilkModel.FK_OrderDetail_TicketOrder" FromRole="TicketOrder" ToRole="OrderDetail" />
+    <NavigationProperty Name="Payments" Relationship="ImilkModel.FK_Payment_TicketOrder" FromRole="TicketOrder" ToRole="Payment" />
+    <NavigationProperty Name="ProductOrders" Relationship="ImilkModel.FK_ProductOrder_TicketOrder" FromRole="TicketOrder" ToRole="ProductOrder" />
+    <NavigationProperty Name="ConfirmPayments" Relationship="ImilkModel.FK_ConfirmPayment_TicketOrder" FromRole="TicketOrder" ToRole="ConfirmPayment" />
+    <Property Name="ChkPayment" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TicketOrderDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TicketOrder" Type="Int64" Nullable="false" />
+    <Property Name="OrderType" Type="Int32" Nullable="false" />
+    <Property Name="Person" Type="Int32" />
+    <Property Name="TableNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Lastdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeCate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UrlImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int64" />
+  </EntityType>
+  <EntityType Name="UserAccount">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MobilePhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="ImageUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AccountGroups" Relationship="ImilkModel.FK_AccountGroup_UserAccount" FromRole="UserAccount" ToRole="AccountGroup" />
+    <NavigationProperty Name="CheckIns" Relationship="ImilkModel.FK_CheckIn_UserAccount" FromRole="UserAccount" ToRole="CheckIn" />
+    <NavigationProperty Name="CheckOuts" Relationship="ImilkModel.FK_CheckOut_UserAccount" FromRole="UserAccount" ToRole="CheckOut" />
+    <NavigationProperty Name="OrderDetails" Relationship="ImilkModel.FK_OrderDetail_UserAccount" FromRole="UserAccount" ToRole="OrderDetail" />
+    <NavigationProperty Name="Payments" Relationship="ImilkModel.FK_Payment_UserAccount" FromRole="UserAccount" ToRole="Payment" />
+    <NavigationProperty Name="Products" Relationship="ImilkModel.FK_Product_UserAccount" FromRole="UserAccount" ToRole="Product" />
+    <NavigationProperty Name="ProductDetails" Relationship="ImilkModel.FK_ProductDetail_UserAccount" FromRole="UserAccount" ToRole="ProductDetail" />
+    <NavigationProperty Name="ProductOrders" Relationship="ImilkModel.FK_ProductOrder_UserAccount" FromRole="UserAccount" ToRole="ProductOrder" />
+    <NavigationProperty Name="ConfirmPayments" Relationship="ImilkModel.FK_ConfirmPayment_UserAccount" FromRole="UserAccount" ToRole="ConfirmPayment" />
+  </EntityType>
+  <EntityType Name="UserGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AccountGroups" Relationship="ImilkModel.FK_AccountGroup_UserGroup" FromRole="UserGroup" ToRole="AccountGroup" />
+  </EntityType>
+  <Association Name="FK_AccountGroup_UserAccount">
+    <End Type="ImilkModel.UserAccount" Role="UserAccount" Multiplicity="1" />
+    <End Type="ImilkModel.AccountGroup" Role="AccountGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AccountGroup">
+        <PropertyRef Name="UserAccount" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AccountGroup_UserGroup">
+    <End Type="ImilkModel.UserGroup" Role="UserGroup" Multiplicity="1" />
+    <End Type="ImilkModel.AccountGroup" Role="AccountGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AccountGroup">
+        <PropertyRef Name="UserGroup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CheckIn_TicketOrder">
+    <End Type="ImilkModel.TicketOrder" Role="TicketOrder" Multiplicity="1" />
+    <End Type="ImilkModel.CheckIn" Role="CheckIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TicketOrder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CheckIn">
+        <PropertyRef Name="TicketOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CheckIn_UserAccount">
+    <End Type="ImilkModel.UserAccount" Role="UserAccount" Multiplicity="1" />
+    <End Type="ImilkModel.CheckIn" Role="CheckIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CheckIn">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CheckOut_TicketOrder">
+    <End Type="ImilkModel.TicketOrder" Role="TicketOrder" Multiplicity="1" />
+    <End Type="ImilkModel.CheckOut" Role="CheckOut" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TicketOrder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CheckOut">
+        <PropertyRef Name="TicketOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CheckOut_UserAccount">
+    <End Type="ImilkModel.UserAccount" Role="UserAccount" Multiplicity="1" />
+    <End Type="ImilkModel.CheckOut" Role="CheckOut" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CheckOut">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetail_TicketOrder">
+    <End Type="ImilkModel.TicketOrder" Role="TicketOrder" Multiplicity="1" />
+    <End Type="ImilkModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TicketOrder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="TicketOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetail_UserAccount">
+    <End Type="ImilkModel.UserAccount" Role="UserAccount" Multiplicity="1" />
+    <End Type="ImilkModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="Customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_TicketOrder">
+    <End Type="ImilkModel.TicketOrder" Role="TicketOrder" Multiplicity="1" />
+    <End Type="ImilkModel.Payment" Role="Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TicketOrder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="TicketOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_UserAccount">
+    <End Type="ImilkModel.UserAccount" Role="UserAccount" Multiplicity="1" />
+    <End Type="ImilkModel.Payment" Role="Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_UserAccount">
+    <End Type="ImilkModel.UserAccount" Role="UserAccount" Multiplicity="1" />
+    <End Type="ImilkModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductCate_Product">
+    <End Type="ImilkModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="ImilkModel.ProductCate" Role="ProductCate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductCate">
+        <PropertyRef Name="Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductDetail_Product">
+    <End Type="ImilkModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="ImilkModel.ProductDetail" Role="ProductDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductDetail">
+        <PropertyRef Name="Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductOrder_Product">
+    <End Type="ImilkModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="ImilkModel.ProductOrder" Role="ProductOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductOrder">
+        <PropertyRef Name="Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductDetail_UserAccount">
+    <End Type="ImilkModel.UserAccount" Role="UserAccount" Multiplicity="1" />
+    <End Type="ImilkModel.ProductDetail" Role="ProductDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductDetail">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductOrder_TicketOrder">
+    <End Type="ImilkModel.TicketOrder" Role="TicketOrder" Multiplicity="1" />
+    <End Type="ImilkModel.ProductOrder" Role="ProductOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TicketOrder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductOrder">
+        <PropertyRef Name="TicketOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductOrder_UserAccount">
+    <End Type="ImilkModel.UserAccount" Role="UserAccount" Multiplicity="0..1" />
+    <End Type="ImilkModel.ProductOrder" Role="ProductOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductOrder">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConfirmPayment_Account">
+    <End Type="ImilkModel.Account" Role="Account" Multiplicity="1" />
+    <End Type="ImilkModel.ConfirmPayment" Role="ConfirmPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ConfirmPayment">
+        <PropertyRef Name="Id_Account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConfirmPayment_TicketOrder">
+    <End Type="ImilkModel.TicketOrder" Role="TicketOrder" Multiplicity="1" />
+    <End Type="ImilkModel.ConfirmPayment" Role="ConfirmPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TicketOrder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ConfirmPayment">
+        <PropertyRef Name="TicketOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConfirmPayment_UserAccount">
+    <End Type="ImilkModel.UserAccount" Role="UserAccount" Multiplicity="1" />
+    <End Type="ImilkModel.ConfirmPayment" Role="ConfirmPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ConfirmPayment">
+        <PropertyRef Name="Id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

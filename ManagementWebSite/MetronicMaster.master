@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MetronicMaster.master.cs" Inherits="MetronicMaster" %>
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Master</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" type="text/css" href="http://services.totiti.net/MetronicAdminTemplate/plugins/select2/select2.css" />
+    <link rel="stylesheet" type="text/css" href="http://services.totiti.net/MetronicAdminTemplate/plugins/select2/select2-metronic.css" />
+
+    <link href="http://services.totiti.net/MetronicAdminTemplate/css/style-metronic.css" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/css/pages/login.css" rel="stylesheet" type="text/css" />
+    <link href="http://services.totiti.net/MetronicAdminTemplate/css/custom.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+     <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        body{
+            background-color:white !important;
+            padding-top:10px !important;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <asp:ContentPlaceHolder ID="CONTENTContentPlaceHolder" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+
+    <!--[if lt IE 9]>
+	<script src="http://services.totiti.net/MetronicAdminTemplate/plugins/respond.min.js"></script>
+	<script src="http://services.totiti.net/MetronicAdminTemplate/plugins/excanvas.min.js"></script> 
+	<![endif]-->
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/plugins/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://services.totiti.net/MetronicAdminTemplate/plugins/select2/select2.min.js"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/scripts/core/app.js" type="text/javascript"></script>
+    <script src="http://services.totiti.net/MetronicAdminTemplate/scripts/custom/login.js" type="text/javascript"></script>
+    <script>
+        jQuery(document).ready(function () {
+            App.init();
+            Login.init();
+        });
+    </script>
+
+</body>
+</html>
